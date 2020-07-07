@@ -11,16 +11,29 @@ function LandingPage() {
 
     const buttonRef = useRef(null);
     const [Movies, setMovies] = useState([])
+    const [CurrentPage, setCurrentPage] = useState([])
+
 
     useEffect(() => {
-        fetch(`${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
+        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+        fetchPage(endpoint)
+    }, [])
+
+    const fetchPage = (path) => {
+        fetch(path)
         .then(response => response.json())
         .then(response => {
             console.log(response)
-            setMovies(response.results)
+            setMovies([...Movies, ...response.results])
+            setCurrentPage(response.page)
         })
-    }, [])
+    }
 
+    const handleClick = () => {
+        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${CurrentPage + 1}`
+        console.log(endpoint)
+        fetchPage(endpoint)
+    }
 
     return (
         <div style={{ width: '100%', margin: '0'}}>
@@ -59,6 +72,7 @@ function LandingPage() {
                         <button
                             ref={buttonRef}
                             className="loadMore"
+                            onClick={handleClick}
                         >
                             Load More
                         </button>

@@ -1,5 +1,6 @@
 import React from 'react'
 import {Icon} from 'antd';
+import { HeartOutlined } from '@ant-design/icons';
 
 function Footer() {
     return (
@@ -8,7 +9,7 @@ function Footer() {
             flexDirection: 'column', alignItems: 'center',
             justifyContent: 'center', fontSize:'1rem'
         }}>
-           <p>Made with <Icon type="heart" /> by Akshat Kumar Agarwal</p>
+           <p>Made with <HeartOutlined /> by Akshat Kumar Agarwal</p>
         </div>
     )
 }
