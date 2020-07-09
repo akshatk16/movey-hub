@@ -1,7 +1,5 @@
 import React, { useEffect, useState, initialState, useRef } from 'react'
-import { FaCode, FaRegIdBadge } from "react-icons/fa";
 import { API_URL, API_KEY, IMAGE_URL } from "../../Config";
-import { urlencoded } from 'body-parser';
 import { Typography, Row, Button } from 'antd';
 import Poster from './Sections/Poster';
 import GridCard from './Sections/GridCard';
@@ -69,13 +67,13 @@ function LandingPage() {
                         display: 'flex',
                         justifyContent: 'center'
                     }}>
-                        <button
+                        <Button
                             ref={buttonRef}
                             className="loadMore"
                             onClick={handleClick}
                         >
                             Load More
-                        </button>
+                        </Button>
                     </div>
             </div>
         </div>

@@ -33,6 +33,7 @@ function NavBar() {
           type="primary"
           onClick={showDrawer}
         >
+        <AlignRightOutlined />
         </Button>
         <Drawer
           title="Basic Drawer"

@@ -1,0 +1,66 @@
+.favH1 {
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+.favH3 {
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.favTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+.favHead{
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #333;
+    color: #bbb;
+}
+.favHead, .favData {
+    border: 1px solid #aaaaaa;
+    padding: 8px;
+    text-align: left;
+    padding-left: 12px;
+}
+
+.small{
+    width: 10%;
+}
+.smallest{
+    width: 6%;
+    text-align: center;
+    padding:0;
+}
+
+.medium{
+    width: 20%;
+}
+.num {
+    text-align: left;
+}
+.button {
+    text-align: center;
+}
+
+.favRow {
+    color: #ccc;
+}
+.favRow:nth-child(2n) {
+    background-color:rgba(100,100,100,0.15);
+    color: #ccc;
+}
+
+.title {
+    cursor: pointer;
+}
+.title:hover {
+    font-weight: bolder;
+}
+.link {
+    text-decoration: none;
+    color: inherit !important;
+}

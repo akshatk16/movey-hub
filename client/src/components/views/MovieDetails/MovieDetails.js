@@ -3,10 +3,9 @@ import { Col, Typography } from 'antd';
 import { API_URL, API_KEY, IMAGE_URL } from "../../Config";
 import Poster from '../LandingPage/Sections/Poster';
 import GridCard from '../LandingPage/Sections/GridCard';
+import FavouriteButton from './Sections/FavouriteButton'
 
 import { Descriptions, Badge, Button, Row } from 'antd';
-import { HeartOutlined } from '@ant-design/icons';
-import { FaCompressArrowsAlt } from 'react-icons/fa';
 
 const { Title } = Typography;
 
@@ -16,10 +15,8 @@ function MovieDetails(props) {
     const [Cast, setCast] = useState([])
     const [Crew, setCrew] = useState([])
     const [ToggleCast, setToggleCast] = useState(false)
-
-
-
     const movieId = props.match.params.movieId
+
     useEffect(() => {
         fetch(`${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`)
         .then(response => response.json())
@@ -52,7 +49,14 @@ function MovieDetails(props) {
             
             <div style={{ width:"85%", margin:"1rem auto" }}>
                 <div style={{ display:"flex", justifyContent:"flex-end" }}>
-                    <Button danger type="round" icon={<HeartOutlined />}>Add To Favourites</Button>
+                    <FavouriteButton
+                        userFrom={localStorage.getItem('userId')}
+                        movieId={movieId}
+                        movieTitle={Movie.original_title}
+                        movieImage={Movie.backdrop_path}
+                        movieRating={Movie.vote_average}
+                        movieRuntime={Movie.runtime}
+                    />
                 </div>
 
 
@@ -78,7 +82,7 @@ function MovieDetails(props) {
                 
                 {/* Cast and Crew */}
                 <div style={{ display:"flex", justifyContent:"center", margin: "1rem auto"}}>
-                    <Button type="dashed" onClick={handleClick}>Cast and Crew</Button>
+                    <Button type="default" size="large" style={{borderColor:"grey"}} onClick={handleClick}>Cast and Crew</Button>
                 </div>
 
                 {ToggleCast && 
@@ -93,6 +97,7 @@ function MovieDetails(props) {
                                 crew
                                 image ={`${IMAGE_URL}w500${crew.profile_path}`}
                                 job = {crew.job}
+                                name = {crew.name}
                             /> : null}
                         </React.Fragment>
                     ))}
@@ -107,6 +112,7 @@ function MovieDetails(props) {
                             {cast.profile_path && <GridCard
                                 actor
                                 image ={`${IMAGE_URL}w500${cast.profile_path}`}
+                                name = {cast.name}
                             />}
                         </React.Fragment>
                     ))}

@@ -10,7 +10,8 @@ function GridCard(props) {
                         <img style={{
                             width:"100%",
                             height:"375px"
-                        }} alt="cast" src={props.image}></img>
+                        }} alt="Unavailable" src={props.image}></img>
+                        <p>{props.name}</p>
                 </div>
             </Col>
         )
@@ -23,6 +24,7 @@ function GridCard(props) {
                             width:"100%",
                             height:"375px",
                         }} alt="cast" src={props.image}></img>
+                        <p>{props.name}</p>
                 </div>
             </Col>
         )
@@ -35,7 +37,7 @@ function GridCard(props) {
                     <a href={`movie/${props.movieId}`}>
                         <img style={{
                             width:"100%",
-                            height:"300px",
+                            height:"375px",
                         }} alt="poster" src={props.image}></img>
                     </a>
                 </div>
