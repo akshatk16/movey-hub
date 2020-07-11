@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Typography } from 'antd';
+import { Typography } from 'antd';
 import { API_URL, API_KEY, IMAGE_URL } from "../../Config";
 import Poster from '../LandingPage/Sections/Poster';
 import GridCard from '../LandingPage/Sections/GridCard';
 import FavouriteButton from './Sections/FavouriteButton'
 
-import { Descriptions, Badge, Button, Row } from 'antd';
+import { Descriptions, Button, Row } from 'antd';
 
 const { Title } = Typography;
 
@@ -95,7 +95,7 @@ function MovieDetails(props) {
                 <Row gutter ={[16, 16]}>
                 {Crew && Crew.map((crew, index) => (
                         <React.Fragment key={index}>
-                            {crew.profile_path && crew.job == "Director" ?  <GridCard
+                            {crew.profile_path && crew.job === "Director" ?  <GridCard
                                 crew
                                 image ={`${IMAGE_URL}w500${crew.profile_path}`}
                                 job = {crew.job}

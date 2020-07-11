@@ -9,8 +9,10 @@ import {
   Form,
   Input,
   Button,
+  Typography
 } from 'antd';
 
+const { Title } = Typography;
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -42,13 +44,13 @@ function RegisterPage(props) {
       initialValues={{
         email: '',
         lastName: '',
-        name: '',
+        firstname: '',
         password: '',
         confirmPassword: ''
       }}
       validationSchema={Yup.object().shape({
-        name: Yup.string()
-          .required('Name is required'),
+        firstname: Yup.string()
+          .required('First Name is required'),
         lastName: Yup.string()
           .required('Last Name is required'),
         email: Yup.string()
@@ -59,7 +61,7 @@ function RegisterPage(props) {
           .required('Password is required'),
         confirmPassword: Yup.string()
           .oneOf([Yup.ref('password'), null], 'Passwords must match')
-          .required('Confirm Password is required')
+          .required('Please confirm your password')
       })}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
@@ -67,7 +69,7 @@ function RegisterPage(props) {
           let dataToSubmit = {
             email: values.email,
             password: values.password,
-            name: values.name,
+            firstname: values.firstname,
             lastname: values.lastname,
             image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`
           };
@@ -98,23 +100,23 @@ function RegisterPage(props) {
         } = props;
         return (
           <div className="app">
-            <h2>Sign up</h2>
-            <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
+            <Title level={2}>Register</Title>
+            <Form {...formItemLayout} onSubmit={handleSubmit} >
 
               <Form.Item required label="Name">
                 <Input
-                  id="name"
-                  placeholder="Enter your name"
+                  id="firstname"
+                  placeholder="Enter your firstname"
                   type="text"
-                  value={values.name}
+                  value={values.firstname}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={
                     errors.name && touched.name ? 'text-input error' : 'text-input'
                   }
                 />
-                {errors.name && touched.name && (
-                  <div className="input-feedback">{errors.name}</div>
+                {errors.firstname && touched.firstname && (
+                  <div className="input-feedback">{errors.firstname}</div>
                 )}
               </Form.Item>
 
@@ -187,7 +189,7 @@ function RegisterPage(props) {
               </Form.Item>
 
               <Form.Item {...tailFormItemLayout}>
-                <Button onClick={handleSubmit} type="primary" disabled={isSubmitting}>
+                <Button className="registerButton" type="primary" onClick={handleSubmit} disabled={isSubmitting}>
                   Submit
                 </Button>
               </Form.Item>

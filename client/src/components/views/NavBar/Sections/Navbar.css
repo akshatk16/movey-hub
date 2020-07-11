@@ -2,7 +2,7 @@
 .menu {
   padding: 0 20px;
   overflow: auto;
-  box-shadow: 0 0 60px #3e3e3e;
+  box-shadow: 0 0 30px #2f2f2f;
   background-color: #262626;
 }
 
@@ -22,9 +22,6 @@
   background-color: #262626;
 }
 
-.ant-menu {
-  /* background: #3e3e3e; */
-}
 .menu__container .ant-menu-submenu-title {
   padding: 10px 20px;
 
@@ -54,14 +51,17 @@
   padding: 6px;
   margin-top: 8px;
   display: none !important; /* use of important to overwrite ant-btn */
-  /* background: #3e3e3e; */
+  background: transparent;
   border: none;
   scale: 1.5;
+}
+.menu__mobile-button:hover {
+  background: transparent;
 }
 
 .menu_drawer .ant-drawer-body {
   padding: 0 !important;
-  /* background-color: #3e3e3e; */
+  background-color: #141414;
 }
 
 /* align header of Drawer with header of page */
@@ -92,10 +92,6 @@
   .menu__container .ant-menu-submenu-title {
     padding: 1px 20px;
     
-  }
-
-  .ant-menu-item a {
-    /* color: #eee */
   }
 
   .menu__logo a {

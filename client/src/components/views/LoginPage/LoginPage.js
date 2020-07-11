@@ -54,7 +54,7 @@ function LoginPage(props) {
                 }
                 props.history.push("/");
               } else {
-                setFormErrorMessage('Check out your Account or Password again')
+                setFormErrorMessage('The entered email and password do not match any account. Kindly check the details again')
               }
             })
             .catch(err => {
@@ -80,10 +80,10 @@ function LoginPage(props) {
           handleReset,
         } = props;
         return (
-          <div className="app">
+          <div className="app" style={{height:"75vh"}}>
 
-            <Title level={2}>Log In</Title>
-            <form onSubmit={handleSubmit} style={{ width: '350px' }}>
+            <Title level={2}>Sign In</Title>
+            <form onSubmit={handleSubmit}>
 
               <Form.Item required>
                 <Input
@@ -97,6 +97,7 @@ function LoginPage(props) {
                   className={
                     errors.email && touched.email ? 'text-input error' : 'text-input'
                   }
+                  // style={{marginBottom:'12px'}}
                 />
                 {errors.email && touched.email && (
                   <div className="input-feedback">{errors.email}</div>
@@ -115,28 +116,28 @@ function LoginPage(props) {
                   className={
                     errors.password && touched.password ? 'text-input error' : 'text-input'
                   }
+                  // style={{marginBottom:'12px', marginTop:'-200px'}}
                 />
                 {errors.password && touched.password && (
                   <div className="input-feedback">{errors.password}</div>
                 )}
               </Form.Item>
 
-              {formErrorMessage && (
-                <label ><p style={{ color: '#ff0000bf', fontSize: '0.7rem', border: '1px solid', padding: '1rem', borderRadius: '10px' }}>{formErrorMessage}</p></label>
-              )}
-
               <Form.Item>
-                <Checkbox id="rememberMe" onChange={handleRememberMe} checked={rememberMe} >Remember me</Checkbox>
+                <Checkbox id="rememberMe" style={{marginBottom:'4px'}} onChange={handleRememberMe} checked={rememberMe} >Remember me</Checkbox>
                 <a className="login-form-forgot" href="/reset_user" style={{ float: 'right' }}>
-                  forgot password
+                  Forgot Password?
                   </a>
                 <div>
-                  <Button type="primary" htmlType="submit" className="login-form-button" style={{ minWidth: '100%' }} disabled={isSubmitting} onSubmit={handleSubmit}>
+                  <Button type="primary" style={{marginBottom:'4px'}} htmlType="submit" className="login-form-button" style={{ minWidth: '100%' }} disabled={isSubmitting} onSubmit={handleSubmit}>
                     Log in
                 </Button>
                 </div>
-                Or <a href="/register">register now!</a>
+                Or <a href="/register">Sign Up</a>
               </Form.Item>
+              {formErrorMessage && (
+                <label ><p style={{color: '#ff0000bf', fontSize: '0.9rem',  padding: '0', borderRadius: '10px' }}>{formErrorMessage}</p></label>
+              )}
             </form>
           </div>
         );

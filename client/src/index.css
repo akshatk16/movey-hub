@@ -35,5 +35,22 @@ input.error {
 .input-feedback {
   color: red;
   height: 5px;
-  margin-top: -12px;
+  margin-top: 1px;
+  position: absolute;
+}
+
+.registerButton {
+  background-color: #575ddc !important;
+}
+
+Form {
+  width: 450px !important;
+}
+form{
+  width: 350px;
+}
+@media (max-width:720px){
+  Form, form{
+    width:80% !important;
+  }
 }

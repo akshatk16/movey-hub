@@ -1,4 +1,4 @@
-import React, { useEffect, useState, initialState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { API_URL, API_KEY, IMAGE_URL } from "../../Config";
 import { Typography, Row, Button } from 'antd';
 import Poster from './Sections/Poster';
@@ -11,12 +11,6 @@ function LandingPage() {
     const [Movies, setMovies] = useState([])
     const [CurrentPage, setCurrentPage] = useState([])
 
-
-    useEffect(() => {
-        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-        fetchPage(endpoint)
-    }, [])
-
     const fetchPage = (path) => {
         fetch(path)
         .then(response => response.json())
@@ -26,6 +20,11 @@ function LandingPage() {
             setCurrentPage(response.page)
         })
     }
+
+    useEffect(() => {
+        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+        fetchPage(endpoint)
+    }, [])
 
     const handleClick = () => {
         const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${CurrentPage + 1}`
