@@ -85,7 +85,7 @@ function Favourites(props) {
     })
 
     return(
-        <div style={{ width:"85%", margin:"1rem auto",}}>
+        <div className={styles.favBody} style={{ width:"80%", margin:"1rem auto",}}>
         
         <h1 className={styles.favH1}>Your Favourites</h1>
         <hr />

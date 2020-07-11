@@ -38,7 +38,9 @@ function MovieDetails(props) {
     }
 
     return(
-        <div>
+        <div style={{ width: '100%', margin: '0'}}>
+
+            {/* jumbotron image */}
             { Movie &&
                 <Poster
                     image={`${IMAGE_URL}w1280${Movie.backdrop_path}`}
