@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'antd';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import axios from 'axios';
-function FavouriteButton(props) {
+import { useSelector } from 'react-redux';
 
+function FavouriteButton(props) {
+    const user = useSelector(state => state.user)
     const [FavouriteNumber, setFavouriteNumber] = useState(0)
     const [Favourited, setFavourited] = useState(false)
     
@@ -39,6 +41,9 @@ function FavouriteButton(props) {
     }, [])
 
     const handleClick = () => {
+        if (user.userData && !user.userData.isAuth) {
+            return alert('Please Log in first');
+        }
         if(Favourited) {
             axios.post('/api/favourite/removeFromFavourites', variable)
                 .then(response => {

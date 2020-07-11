@@ -10,7 +10,7 @@ const { auth } = require("../middleware/auth");
 
 
 
-router.post("/favouriteNumber", auth, (req, res) => {
+router.post("/favouriteNumber", (req, res) => {
 
     Favourite.find({"movieId": req.body.movieId})
         .exec(( err, favourite ) => {
@@ -25,7 +25,7 @@ router.post("/favouriteNumber", auth, (req, res) => {
         })
 });
 
-router.post("/favourited", auth, (req, res) => {
+router.post("/favourited", (req, res) => {
 
     Favourite.find({"movieId": req.body.movieId, "userFrom": req.body.userFrom})
         .exec(( err, favourite ) => {
@@ -40,7 +40,7 @@ router.post("/favourited", auth, (req, res) => {
         })
 });
 
-router.post("/addToFavourites", auth, (req, res) => {
+router.post("/addToFavourites", (req, res) => {
     const favourite = new Favourite(req.body)
     favourite.save((err, doc) => {
         if(err) return res.status(400).json({ success:false, err })
@@ -56,13 +56,6 @@ router.post("/removeFromFavourites", auth, (req, res) => {
     })
 });
 
-// router.post("/getFavourites", (req, res) => {
-//     Favourite.find({ "userFrom": req.body.userFrom })
-//         .exec((err, favourites) => {
-//         if(err) return res.status(400).send(err);
-//         return res.status(200).json({ success:true, favourites })
-//     })
-// });
 
 router.post("/getFavourites", (req, res) => {
     Favourite.find({ 'userFrom': req.body.userFrom })

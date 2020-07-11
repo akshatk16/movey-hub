@@ -13,13 +13,13 @@ function Poster(props) {
                         rgba(0,0,0,0) 39%, 
                         rgba(0,0,0,0) 41%, 
                         rgba(0,0,0,0.65) 100%),
-                        no-repeat #1c1c1c`,
+                        #1c1c1c`,
                 backgroundImage: `url('${props.image}')`,
-                height: '500px',
+                height: '80vh',
                 width: '100%',
                 position: 'relative',
                 backgroundSize: 'cover',
-                backgroundPosition: 'center, center',
+                backgroundPosition: 'center center',
                 backgroundRepeat: 'no-repeat',
             }}>
                 <div>
@@ -28,6 +28,10 @@ function Poster(props) {
                         maxWidth: "500px",
                         bottom: '2rem',
                         marginLeft: '2rem',
+                        marginRight:"2rem",
+                        padding: "0.2rem 0.7rem 0rem 0.7rem",
+                        background: 'rgba(50, 50, 70, 0.8)',
+                        borderRadius:"10px",
                     }}>
                         <Title style= {{
                             color: "white"
