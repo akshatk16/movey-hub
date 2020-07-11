@@ -15,7 +15,6 @@ function Favourites(props) {
             .then(response => {
                 if(response.data.success) {
                     setFavouriteMovies(response.data.favourites)
-                    console.log(response.data)
                 } else {
                     alert("Could Not Fetch Favourited Movies")
                 }
