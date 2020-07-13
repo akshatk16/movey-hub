@@ -13,6 +13,8 @@ import ResetUser from "./views/ResetUser/ResetUser";
 
 
 
+
+
 //null   Anyone Can go inside
 //true   only logged in user can go inside
 //false  logged in user can't go inside
@@ -29,6 +31,7 @@ function App() {
           <Route exact path="/movie/:movieId" component={Auth(MovieDetails, null)} />
           <Route exact path="/favourites" component={Auth(Favourites, null)} />
           <Route exact path="/reset_user" component={Auth(ResetUser, null)} />
+
         </Switch>
       </div>
       <Footer />

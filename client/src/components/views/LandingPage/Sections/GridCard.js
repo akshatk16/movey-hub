@@ -38,7 +38,7 @@ function GridCard(props) {
                         <img style={{
                             width:"100%",
                             height:"375px",
-                        }} alt="poster" src={props.image}></img>
+                        }} alt={`Poster unavailable for '${props.title}'`} src={props.image}></img>
                     </a>
                 </div>
             </Col>

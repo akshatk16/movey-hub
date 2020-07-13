@@ -129,7 +129,7 @@ function LoginPage(props) {
                   Forgot Password?
                   </a>
                 <div>
-                  <Button type="primary" style={{marginBottom:'4px'}} htmlType="submit" className="login-form-button" style={{ minWidth: '100%' }} disabled={isSubmitting} onSubmit={handleSubmit}>
+                  <Button type="primary" htmlType="submit" className="login-form-button" style={{ minWidth: '100%', marginBottom:'4px' }} disabled={isSubmitting} onSubmit={handleSubmit}>
                     Log in
                 </Button>
                 </div>

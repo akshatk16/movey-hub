@@ -43,7 +43,7 @@ function Favourites(props) {
         const poster = (
             <div>
                 {movie.movieImage ?
-                    <img src={`${IMAGE_URL}w500${movie.movieImage}`} />
+                    <img src={`${IMAGE_URL}w500${movie.movieImage}`} alt="Poster" />
                     : "Poster Not Available"
                 }
             </div>
@@ -86,7 +86,7 @@ function Favourites(props) {
     return(
         <div className={styles.favBody} style={{ width:"80%", margin:"1rem auto",}}>
         
-        <h1 className={styles.favH1}>Your Favourites</h1>
+        <Title level={1} style={{margin:'0'}}>Your Favourites</Title>
         <hr />
         {FavouriteMovies.length ?
             <table className={styles.favTable}>
