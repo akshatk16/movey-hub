@@ -31,7 +31,6 @@ function LandingPage() {
         fetch(path)
         .then(response => response.json())
         .then(response => {
-            console.log(response)
             if(response.total_results > 0) {
                 setMovies(response.results)
             }
@@ -41,10 +40,8 @@ function LandingPage() {
     const handleSearch = (e) => {
         searchText = e.replace(/ /g, '%20');
         const endpoint = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${searchText}`
-        console.log(endpoint)
         fetchSearch(endpoint)
         notSearched = false
-        console.log(notSearched)
     }
 
     useEffect(() => {
@@ -101,8 +98,7 @@ function LandingPage() {
                     width: '85%',
                     margin: '1rem auto'
                 }}>
-                    <Title level ={2}>{notSearched ? 'Popular Movies' : `Search Results for '${searchText}'`}</Title>
-                    {console.log(notSearched)}
+                    <Title level ={2}>{notSearched ? 'Popular Movies' : `Search Results for '${searchText.replace('%20', ' ')}'`}</Title>
                     <hr />
                     <Row gutter ={[16, 16]}>
                         {Movies && Movies.map((movie, index) => (

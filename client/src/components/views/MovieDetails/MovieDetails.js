@@ -27,7 +27,6 @@ function MovieDetails(props) {
                 .then(response => {
                     setCast(response.cast)
                     setCrew(response.crew)
-                    console.log(response)
                 })
         })
     }, [])
