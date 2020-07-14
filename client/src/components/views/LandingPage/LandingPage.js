@@ -101,7 +101,7 @@ function LandingPage() {
                     width: '85%',
                     margin: '1rem auto'
                 }}>
-                    <Title level ={2}>{notSearched ? 'Popular Movies' : `Search Results for ${searchText}`}</Title>
+                    <Title level ={2}>{notSearched ? 'Popular Movies' : `Search Results for '${searchText}'`}</Title>
                     {console.log(notSearched)}
                     <hr />
                     <Row gutter ={[16, 16]}>
@@ -116,21 +116,23 @@ function LandingPage() {
                         ))}
                     </Row>
                     <br />
-                        <div style = {{
-                            display: 'flex',
-                            justifyContent: 'center'
-                        }}>
-                            <Button
-                                ref={buttonRef}
-                                className="loadMore"
-                                onClick={handleClick}
-                            >
-                                Load More
-                            </Button>
-                        </div>
+                        {notSearched && 
+                            <div style = {{
+                                display: 'flex',
+                                justifyContent: 'center'
+                            }}>
+                                <Button
+                                    ref={buttonRef}
+                                    className="loadMore"
+                                    onClick={handleClick}
+                                >
+                                    Load More
+                                </Button>
+                            </div>
+                        }
                 </div>
             </div>
-    </div>
+        </div>
     )
 }
 

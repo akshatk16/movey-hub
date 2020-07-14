@@ -27,6 +27,7 @@ function MovieDetails(props) {
                 .then(response => {
                     setCast(response.cast)
                     setCrew(response.crew)
+                    console.log(response)
                 })
         })
     }, [])
@@ -94,12 +95,13 @@ function MovieDetails(props) {
                 <Row gutter ={[16, 16]}>
                 {Crew && Crew.map((crew, index) => (
                         <React.Fragment key={index}>
-                            {crew.profile_path && crew.job === "Director" ?  <GridCard
-                                crew
-                                image ={`${IMAGE_URL}w500${crew.profile_path}`}
-                                job = {crew.job}
-                                name = {crew.name}
-                            /> : null}
+                            {crew.job === "Director" ?
+                                <GridCard
+                                    crew
+                                    image ={`${IMAGE_URL}w500${crew.profile_path}`}
+                                    job = {crew.job}
+                                    name = {crew.name}
+                                /> : null}
                         </React.Fragment>
                     ))}
                 </Row>

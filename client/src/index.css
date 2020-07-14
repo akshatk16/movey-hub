@@ -43,6 +43,13 @@ input.error {
   background-color: #575ddc !important;
 }
 
+.menu_logo {
+height: auto;
+width: auto;
+margin-left:-20px;
+margin-top: -4px;
+max-width: 140px;
+}
 Form {
   width: 450px !important;
 }
@@ -52,5 +59,9 @@ form{
 @media (max-width:720px){
   Form, form{
     width:80% !important;
+  }
+  .menu_logo{
+    margin-left: -10px;
+    margin-top: 0;
   }
 }

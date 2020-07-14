@@ -11,10 +11,6 @@ import MovieDetails from "./views/MovieDetails/MovieDetails";
 import Favourites from "./views/Favourites/Favourites";
 import ResetUser from "./views/ResetUser/ResetUser";
 
-
-
-
-
 //null   Anyone Can go inside
 //true   only logged in user can go inside
 //false  logged in user can't go inside
@@ -29,7 +25,7 @@ function App() {
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/movie/:movieId" component={Auth(MovieDetails, null)} />
-          <Route exact path="/favourites" component={Auth(Favourites, null)} />
+          <Route exact path="/favourites" component={Auth(Favourites, true)} />
           <Route exact path="/reset_user" component={Auth(ResetUser, null)} />
 
         </Switch>
