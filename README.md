@@ -1,6 +1,9 @@
 ## Movey Hub
 A React based application that uses the OMDb API to search and populate the website with popular movies, user's favourties and searched keywords.
 
+## Demo
+[Movey Hub Demo](https://moveyhub.herokuapp.com/)
+
 ## Usage
 - Homepage displays current popular movies.
 - Click on a movie for detailed information, add to favourites and cast details
